@@ -57,7 +57,7 @@ def fetch_trending(token: str | None = None) -> list[dict]:
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
     }
     if token:
-        headers['Authorization'] = f'token {token}'
+        headers['Authorization'] = f'Bearer {token}'
 
     resp = requests.get('https://github.com/trending', headers=headers, timeout=15)
     resp.raise_for_status()
