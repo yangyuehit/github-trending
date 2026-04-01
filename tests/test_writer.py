@@ -67,7 +67,8 @@ def test_write_creates_file_and_directories():
         path = write([_make_project()], '2026-04-01', tmpdir)
         assert os.path.exists(path)
         assert path.endswith('2026-04-01.md')
-        content = open(path, encoding='utf-8').read()
+        with open(path, encoding='utf-8') as f:
+            content = f.read()
         assert 'owner/repo' in content
 
 
